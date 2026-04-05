@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes | 24BCE0403</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top premium-nav" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div class="nav-logo-icon"><i class="fas fa-book-open"></i></div>
+      <div><span class="nav-logo-text">SmartNotes</span><span class="nav-id-badge">24BCE0403</span></div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="notes.html"><i class="fas fa-layer-group me-1"></i>Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-cloud-arrow-up me-1"></i>Upload</a></li>
+        <li class="nav-item ms-2"><button onclick="toggleDarkMode()" class="theme-btn" id="themeBtn"><i class="fas fa-moon"></i></button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="notes-hero-ultra">
+  <div class="hero-glow-orb orb-1"></div>
+  <div class="hero-glow-orb orb-2"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="container text-center position-relative" style="z-index:2;">
+    <div class="section-chip fade-in"><i class="fas fa-layer-group me-1"></i>STUDY MATERIALS</div>
+    <h1 class="display-4 fw-900 text-white mt-3 fade-in-up" style="letter-spacing:-2px;">Browse All <span class="gradient-text-pro">Notes</span></h1>
+    <p class="fade-in-up delay-1" style="color:rgba(210,210,255,0.7); font-size:1.1rem; margin-top:12px;">Find, filter & download premium notes — by <strong style="color:var(--primary-light)">24BCE0403</strong></p>
+    <div class="row justify-content-center mt-4 fade-in-up delay-2">
+      <div class="col-md-7">
+        <div class="search-ultra"><div class="search-icon-ultra"><i class="fas fa-search"></i></div><input type="text" id="search" onkeyup="searchNotes()" class="search-field-ultra" placeholder="Type to search notes..."><div class="search-kbd">⌘K</div></div>
+      </div>
+    </div>
+    <div class="mt-4 d-flex justify-content-center gap-2 flex-wrap fade-in-up delay-3">
+      <button class="filter-chip active" onclick="filterNotes('all')"><i class="fas fa-th me-1"></i>All</button>
+      <button class="filter-chip" onclick="filterNotes('math')"><i class="fas fa-square-root-variable me-1"></i>Math</button>
+      <button class="filter-chip" onclick="filterNotes('physics')"><i class="fas fa-atom me-1"></i>Physics</button>
+      <button class="filter-chip" onclick="filterNotes('cs')"><i class="fas fa-code me-1"></i>CS</button>
+      <button class="filter-chip" onclick="filterNotes('chemistry')"><i class="fas fa-flask me-1"></i>Chemistry</button>
+      <button class="filter-chip" onclick="filterNotes('english')"><i class="fas fa-pen-fancy me-1"></i>English</button>
+    </div>
+    <div class="mt-3 fade-in-up delay-3"><span class="results-count" id="resultsCount">Showing 6 notes</span></div>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row g-4" id="notes-container">
+    <div class="col-lg-4 col-md-6 note-wrapper" data-category="math"><div class="note-ultra" data-tilt><div class="note-ultra-glow math-glow"></div><div class="note-ultra-top"><div class="note-ultra-icon math-icon"><i class="fas fa-square-root-variable"></i></div><div><div class="note-ultra-badge math-badge">MATHEMATICS</div><h5 class="fw-bold mt-1 mb-0">Algebra & Calculus</h5><small class="opacity-50">By Prof. Sharma • Jan 2025</small></div></div><p class="note-ultra-desc">Complete formulas, solved examples, important theorems & shortcut methods.</p><div class="note-ultra-meta"><span><i class="fas fa-file-pdf"></i> 12 Pages</span><span><i class="fas fa-download"></i> 2.3k</span><span><i class="fas fa-star"></i> 4.5</span></div><div class="note-ultra-footer"><div class="note-ultra-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span></div><button class="btn-dl" onclick="downloadNote(this)"><i class="fas fa-download me-1"></i>Download</button></div></div></div>
+
+    <div class="col-lg-4 col-md-6 note-wrapper" data-category="physics"><div class="note-ultra" data-tilt><div class="note-ultra-glow physics-glow"></div><div class="note-ultra-top"><div class="note-ultra-icon physics-icon"><i class="fas fa-atom"></i></div><div><div class="note-ultra-badge physics-badge">PHYSICS</div><h5 class="fw-bold mt-1 mb-0">Quantum Mechanics</h5><small class="opacity-50">By Dr. Verma • Feb 2025</small></div></div><p class="note-ultra-desc">Wave-particle duality, Schrodinger equation, atomic models explained.</p><div class="note-ultra-meta"><span><i class="fas fa-file-pdf"></i> 18 Pages</span><span><i class="fas fa-download"></i> 3.1k</span><span><i class="fas fa-star"></i> 5.0</span></div><div class="note-ultra-footer"><div class="note-ultra-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><button class="btn-dl" onclick="downloadNote(this)"><i class="fas fa-download me-1"></i>Download</button></div></div></div>
+
+    <div class="col-lg-4 col-md-6 note-wrapper" data-category="cs"><div class="note-ultra" data-tilt><div class="note-ultra-glow cs-glow"></div><div class="note-ultra-top"><div class="note-ultra-icon cs-icon"><i class="fas fa-code"></i></div><div><div class="note-ultra-badge cs-badge">COMPUTER SCIENCE</div><h5 class="fw-bold mt-1 mb-0">Java Programming</h5><small class="opacity-50">By 24BCE0403 • Mar 2025</small></div></div><p class="note-ultra-desc">Core Java, OOPs, Collections, exception handling & multithreading.</p><div class="note-ultra-meta"><span><i class="fas fa-file-pdf"></i> 25 Pages</span><span><i class="fas fa-download"></i> 4.7k</span><span><i class="fas fa-star"></i> 4.8</span></div><div class="note-ultra-footer"><div class="note-ultra-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span></div><button class="btn-dl" onclick="downloadNote(this)"><i class="fas fa-download me-1"></i>Download</button></div></div></div>
+
+    <div class="col-lg-4 col-md-6 note-wrapper" data-category="chemistry"><div class="note-ultra" data-tilt><div class="note-ultra-glow chem-glow"></div><div class="note-ultra-top"><div class="note-ultra-icon chem-icon"><i class="fas fa-flask"></i></div><div><div class="note-ultra-badge chem-badge">CHEMISTRY</div><h5 class="fw-bold mt-1 mb-0">Organic Chemistry</h5><small class="opacity-50">By Prof. Gupta • Jan 2025</small></div></div><p class="note-ultra-desc">Named reactions, mechanisms, conversions & reagents for JEE.</p><div class="note-ultra-meta"><span><i class="fas fa-file-pdf"></i> 20 Pages</span><span><i class="fas fa-download"></i> 1.8k</span><span><i class="fas fa-star"></i> 4.5</span></div><div class="note-ultra-footer"><div class="note-ultra-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span></div><button class="btn-dl" onclick="downloadNote(this)"><i class="fas fa-download me-1"></i>Download</button></div></div></div>
+
+    <div class="col-lg-4 col-md-6 note-wrapper" data-category="english"><div class="note-ultra" data-tilt><div class="note-ultra-glow eng-glow"></div><div class="note-ultra-top"><div class="note-ultra-icon eng-icon"><i class="fas fa-pen-fancy"></i></div><div><div class="note-ultra-badge eng-badge">ENGLISH</div><h5 class="fw-bold mt-1 mb-0">Grammar & Writing</h5><small class="opacity-50">By Ms. Iyer • Dec 2024</small></div></div><p class="note-ultra-desc">Tenses, voice, narration, essays, letters with examples.</p><div class="note-ultra-meta"><span><i class="fas fa-file-pdf"></i> 15 Pages</span><span><i class="fas fa-download"></i> 980</span><span><i class="fas fa-star"></i> 4.0</span></div><div class="note-ultra-footer"><div class="note-ultra-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div><button class="btn-dl" onclick="downloadNote(this)"><i class="fas fa-download me-1"></i>Download</button></div></div></div>
+
+    <div class="col-lg-4 col-md-6 note-wrapper" data-category="math"><div class="note-ultra" data-tilt><div class="note-ultra-glow math-glow"></div><div class="note-ultra-top"><div class="note-ultra-icon math-icon"><i class="fas fa-chart-line"></i></div><div><div class="note-ultra-badge math-badge">MATHEMATICS</div><h5 class="fw-bold mt-1 mb-0">Statistics & Probability</h5><small class="opacity-50">By 24BCE0403 • Mar 2025</small></div></div><p class="note-ultra-desc">Mean, median, mode, standard deviation & probability distributions.</p><div class="note-ultra-meta"><span><i class="fas fa-file-pdf"></i> 14 Pages</span><span><i class="fas fa-download"></i> 2.9k</span><span><i class="fas fa-star"></i> 5.0</span></div><div class="note-ultra-footer"><div class="note-ultra-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><button class="btn-dl" onclick="downloadNote(this)"><i class="fas fa-download me-1"></i>Download</button></div></div></div>
+  </div>
+
+  <div id="no-results" class="text-center py-5 mt-5" style="display:none;"><div class="no-results-icon"><i class="fas fa-search"></i></div><h3 class="mt-3">No notes found</h3><p class="text-muted">Try different keywords</p><button class="btn-premium mt-3" onclick="filterNotes('all')"><span class="btn-premium-bg"></span><span class="btn-premium-text">Show All Notes</span></button></div>
+</div>
+
+<section class="container mt-3 mb-3">
+  <h4 class="fw-bold mb-4"><i class="fas fa-clock me-2" style="color:var(--primary)"></i>Recently Viewed</h4>
+  <div class="recent-strip">
+    <div class="recent-item"><div class="ri-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><i class="fas fa-square-root-variable"></i></div><div><strong>Algebra</strong><small>2 min ago</small></div></div>
+    <div class="recent-item"><div class="ri-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)"><i class="fas fa-atom"></i></div><div><strong>Quantum</strong><small>5 min ago</small></div></div>
+    <div class="recent-item"><div class="ri-icon" style="background:linear-gradient(135deg,#06b6d4,#22d3ee)"><i class="fas fa-code"></i></div><div><strong>Java OOPs</strong><small>1 hr ago</small></div></div>
+    <div class="recent-item"><div class="ri-icon" style="background:linear-gradient(135deg,#ef4444,#f87171)"><i class="fas fa-flask"></i></div><div><strong>Organic Chem</strong><small>3 hr ago</small></div></div>
+  </div>
+</section>
+
+<section class="container mt-3 mb-5">
+  <h4 class="fw-bold mb-4"><i class="fas fa-bookmark me-2" style="color:var(--accent)"></i>Your Bookmarks</h4>
+  <div class="bookmark-empty"><i class="fas fa-bookmark fa-2x mb-3" style="color:var(--primary)"></i><p class="mb-0">No bookmarks yet. Click ♡ on any note to save it!</p></div>
+</section>
+
+<footer class="footer-ultra"><div class="container"><div class="footer-bottom"><p>© 2025 SmartNotes Hub — Designed & Developed by <strong>24BCE0403</strong></p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div></div></div></footer>
+
+<button id="backToTop" class="top-btn" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+<div class="fab-container">
+  <button class="fab-main" onclick="toggleFab()" id="fabBtn"><i class="fas fa-plus"></i></button>
+  <div class="fab-menu" id="fabMenu">
+    <a href="index.html" class="fab-item" data-tooltip="Home"><i class="fas fa-home"></i></a>
+    <a href="contact.html" class="fab-item" data-tooltip="Upload"><i class="fas fa-cloud-arrow-up"></i></a>
+    <a href="#" class="fab-item" data-tooltip="Dark Mode" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
